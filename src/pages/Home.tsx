@@ -5,18 +5,14 @@ import { Phone, Timer, TimerIcon, UtensilsCrossedIcon } from "lucide-react";
 import Button from "../components/Button";
 import { motion } from "framer-motion";
 import Menu from "../components/Menu";
-import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import AnimatedPresence from "../components/AnimatedPresence";
 
 const PageToRender: React.FC = () => {
-  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  function handleAction(path?: string) {
-    if (!path) return console.log("Empty");
-    navigate(path);
-  }
 
   return (
-    <div className="min-h-screen selection:bg-gold-dark overflow-x-hidden">
+    <div className="min-h-screen selection:bg-gold-dark overflow-x-hidden font-sans">
       <Menu showMenu={showMenu} />
       {/* Hero section */}
       <section
@@ -124,7 +120,7 @@ const PageToRender: React.FC = () => {
             label="See Our Menu"
             labelColor="gray-950"
             color="gold"
-            onPress={handleAction}
+            path="/menu"
           />
         </div>
       </section>
@@ -166,10 +162,10 @@ const PageToRender: React.FC = () => {
             <div
               className="absolute h-screen top-0 left-0 w-full"
               style={{
-                backgroundColor: "#444", // Golden color
+                backgroundColor: "#444",
                 mixBlendMode: "overlay",
               }}
-            />{" "}
+            />
             <div className="h-full w-full flex flex-col gap-8 justify-center items-center z-10">
               <h3 className="font-Gambarino text-2xl sm:text-3xl md:text-4xl lg:text-5xl sm:max-w-[300px] md:max-w-[480px] lg:max-w-[680px] text-center p-2 backdrop-blur-sm">
                 World class cuisine
@@ -178,7 +174,7 @@ const PageToRender: React.FC = () => {
                 label="See Food Gallery"
                 labelColor="white"
                 color="gold"
-                onPress={handleAction}
+                path="/gallery"
               />
             </div>
           </div>
@@ -186,7 +182,7 @@ const PageToRender: React.FC = () => {
       </section>
       <section className="relative">
         <motion.div
-          className="h-screen w-full border-b-8 border-gold flex flex-col items-center justify-center gap-4  p-8 text-white"
+          className="h-screen w-full  flex flex-col items-center justify-center gap-4  p-8 text-white"
           style={{
             backgroundImage:
               "linear-gradient(rgba(255, 215, 0, .0), rgba(255, 215, 0, 0.4)),url('/background/people-eating.png')",
@@ -210,35 +206,22 @@ const PageToRender: React.FC = () => {
             label="See Our Story"
             labelColor="white"
             color="gold"
-            onPress={handleAction}
+            path="/our-story"
           />
         </motion.div>
       </section>
-      <footer className="bg-gray-950 text-white p-8 lg:px-24 w-screen flex lg:items-center justify-between">
-        <div className="flex flex-col lg:flex-row gap-6 text-xl">
-          <h3 className="underline hover:opacity-75 cursor-pointer">Contact</h3>
-          <h3 className="underline hover:opacity-75 cursor-pointer">
-            Instagram
-          </h3>
-          <h3 className="underline hover:opacity-75 cursor-pointer">
-            Facebook
-          </h3>
-        </div>
-        <div>
-          <span className="text-xl underline hover:opacity-75 cursor-pointer">
-            Scroll to top
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
 
 const HomePage: React.FC = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      <PageToRender />
-    </Suspense>
+    <AnimatedPresence>
+      <Suspense fallback={<Loading />}>
+        <PageToRender />
+      </Suspense>
+    </AnimatedPresence>
   );
 };
 

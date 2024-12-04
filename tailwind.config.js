@@ -7,7 +7,7 @@ export default {
         gold: {
           light: "#fddc5c", // Light gold
           DEFAULT: "#996515", // Standard gold
-          dark: "#b38b1d", // Dark gold
+          dark: "#604806", // Dark gold
         },
         ivory: "#fffff0", // Soft ivory background
       },
