@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Loading from "./Loading";
 import Header from "../components/Header";
 import AnimatedPresence from "../components/AnimatedPresence";
+import ScrollToTop from "../components/ScrollToTop";
 
 const imageLinks = [
   "/food/people1.png",
@@ -33,6 +34,7 @@ const PageToRender: React.FC = () => {
     <div className="flex flex-col items-center overflow-x-hidden font-sans">
       <div className="w-screen min-h-screen bg-gray-50 p-8">
         <Header />
+        <ScrollToTop />
         <div
           className="w-full h-48 my-4 flex justify-center items-center relative"
           style={{
@@ -74,7 +76,7 @@ const PageToRender: React.FC = () => {
       {/* Image Popup */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="relative w-11/12 md:w-3/4 lg:w-1/2">
+          <div className="relative w-11/12 md:w-3/4 lg:w-[40%]">
             <button
               className="absolute top-2 right-2 rounded-full text-white bg-black bg-opacity-50 p-2 hover:bg-opacity-100"
               onClick={closeImage}
@@ -84,7 +86,7 @@ const PageToRender: React.FC = () => {
             <img
               src={selectedImage}
               alt="Selected Food"
-              className="w-full h-auto rounded-sm"
+              className="w-full rounded-sm"
             />
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Home, Mail, Phone } from "lucide-react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import AnimatedPresence from "../components/AnimatedPresence";
+import ScrollToTop from "../components/ScrollToTop";
 
 // Define the form data interface
 interface FormData {
@@ -56,7 +57,7 @@ const PageToRender: React.FC = () => {
     <div className="flex flex-col items-center overflow-x-hidden font-sans">
       <div className="w-screen min-h-screen bg-gray-50 p-8">
         <Header />
-
+        <ScrollToTop />
         <div
           className="w-full h-48 my-4 flex justify-center items-center relative"
           style={{

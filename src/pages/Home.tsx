@@ -4,16 +4,18 @@ import { Cross } from "hamburger-react";
 import { Phone, Timer, TimerIcon, UtensilsCrossedIcon } from "lucide-react";
 import Button from "../components/Button";
 import { motion } from "framer-motion";
-import Menu from "../components/Menu";
+import Menus from "../components/Menus";
 import Footer from "../components/Footer";
 import AnimatedPresence from "../components/AnimatedPresence";
+import ScrollToTop from "../components/ScrollToTop";
 
 const PageToRender: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen selection:bg-gold-dark overflow-x-hidden font-sans">
-      <Menu showMenu={showMenu} />
+      <Menus showMenu={showMenu} />
+      <ScrollToTop />
       {/* Hero section */}
       <section
         className="w-screen h-screen p-8"
@@ -55,7 +57,7 @@ const PageToRender: React.FC = () => {
             <div className="flex gap-2 drop-shadow-lg">
               <UtensilsCrossedIcon size={38} />
               <div>
-                <p>Delicious and Savory Luxury Meals.</p>
+                <p>Delicious and Savory Meals.</p>
                 <p>
                   <span className="underline hover:opacity-50 cursor-pointer">
                     Dine with us
@@ -71,7 +73,7 @@ const PageToRender: React.FC = () => {
         </div>
       </section>
       {/* Food display */}
-      <section className="p-8 border-8 border-gold">
+      <section className="p-8 border-8 border-gold bg-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-start gap-4 text-gray-950">
           <div className="h-80 flex flex-col items-center justify-center">
             <div className="w-full h-full overflow-hidden">

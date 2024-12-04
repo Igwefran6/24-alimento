@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Menu: React.FC = () => {
+const Menus: React.FC = () => {
   const menuVariant = {
     initial: { opacity: 0 }, // Start invisible
     animate: {
@@ -41,7 +41,7 @@ const Menu: React.FC = () => {
 
       {/* Content */}
       <div className="relative w-full h-full flex flex-col items-center justify-center text-white z-40">
-        <h1 className="text-4xl font-bold mb-8 font-Gambarino">Menu</h1>
+        <h1 className="text-4xl font-bold mb-8 font-Gambarino">Menus</h1>
         <nav className="flex flex-col allura-regular space-y-6 text-center">
           <Link to="/" className="text-5xl hover:text-gold-light transition">
             Home
@@ -77,12 +77,7 @@ const Menu: React.FC = () => {
 };
 
 const MenuWrapper = ({ showMenu }: { showMenu: boolean }) => {
-  return (
-    <AnimatePresence>
-      {/* Menu will now wait for the exit animation before unmounting */}
-      {showMenu && <Menu />}
-    </AnimatePresence>
-  );
+  return <AnimatePresence>{showMenu && <Menus />}</AnimatePresence>;
 };
 
 export default MenuWrapper;

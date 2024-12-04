@@ -1,14 +1,14 @@
 import { ArrowLeft } from "lucide-react";
 import BackButton from "./BackButton";
 import { Cross } from "hamburger-react";
-import MenuWrapper from "./Menu";
+import Menus from "./Menus";
 import { useState } from "react";
 
 const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
     <div>
-      <MenuWrapper showMenu={showMenu} />
+      <Menus showMenu={showMenu} />
       <div className="flex justify-between items-center mb-8">
         <BackButton>
           <span className="text-2xl font-bold text-gray-950 flex items-center gap-2 hover:opacity-75">
